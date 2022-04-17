@@ -24,9 +24,7 @@ func main() {
 	sliceStr := strings.Split(sourceString, "\n")
 	for i, v := range sliceStr {
 		if strings.Contains(v, "-->") {
-			println("原始数据：" + v)
 			last := modifyTime(v, delaySec)
-			println("更新后数据：" + last)
 			sliceStr[i] = last
 		}
 	}
@@ -47,9 +45,7 @@ func modifyTime(s string, delay int64) string {
 		time, append := getTime(v)
 		time = time + delay
 		lastTime := toTime(time)
-		println("原始时间" + v)
 		lastV := lastTime + "," + append
-		println("更改时间" + lastV)
 		timeSlice[i] = lastV
 	}
 	return timeSlice[0] + " --> " + timeSlice[1]
